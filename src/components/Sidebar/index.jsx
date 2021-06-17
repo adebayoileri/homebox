@@ -10,7 +10,7 @@ export default function Sidebar() {
 
       <div className="navigation__box ">
         <ul className="navigation__list">
-          <li className="navigation__item navigation__item--dashboard">
+          <li className="navigation__item navigation__item--active">
             <a href="#dashboard" className="navigation__link">
               <div className="navigation__icon"></div>
               Dashboard
@@ -22,7 +22,7 @@ export default function Sidebar() {
               All Customers
             </a>
           </li>
-          <li className="navigation__item navigation__item--active">
+          <li className="navigation__item">
             <a href="#dashboard" className="navigation__link">
               {" "}
               <div className="navigation__icon"></div> 

@@ -44,10 +44,14 @@ export default function Login() {
             </Box>
           </Box>
           <FormControl id="email">
-            <FormLabel textColor="#000">Email Address</FormLabel>
+            <FormLabel fontSize="1.5rem" textColor="#000">
+              Email Address
+            </FormLabel>
             <InputGroup size="md">
               <Input
                 pr="4.5rem"
+                fontSize="1.5rem"
+                height="4rem"
                 type="email"
                 colorScheme="white"
                 focusBorderColor="#43B287"
@@ -56,9 +60,13 @@ export default function Login() {
             </InputGroup>
           </FormControl>
           <FormControl id="password">
-            <FormLabel textColor="#000">Password</FormLabel>
+            <FormLabel fontSize="1.5rem" textColor="#000">
+              Password
+            </FormLabel>
             <InputGroup size="md">
               <Input
+                height="4rem"
+                fontSize="1.5rem"
                 colorScheme="white"
                 pr="4.5rem"
                 type={show ? "text" : "password"}
@@ -67,8 +75,9 @@ export default function Login() {
               />
               <InputRightElement width="4.5rem">
                 <IconButton
-                  h="1.75rem"
-                  size="sm"
+                  h="2.4rem"
+                  mt="1.3rem"
+                  size="md"
                   aria-label="show_password"
                   icon={!show ? <HiEyeOff /> : <HiEye />}
                   onClick={handleClick}
@@ -81,17 +90,20 @@ export default function Login() {
             justifyContent="space-between"
             alignItems="center"
             my="4"
+            fontSize="1.64rem"
           >
-            <Checkbox colorScheme="teal"> Remember me</Checkbox>
+            <Checkbox colorScheme="teal" size="md">
+              {" "}
+              <Text fontSize="1.64rem">Remember me</Text>
+            </Checkbox>
             <Text color="#000">Forgot Password</Text>
           </Box>
           <Button
             as={Link}
             to="/dashboard"
             textColor="white"
-            borderRadius="xl"
-            p="3"
-            height="67px"
+            borderRadius="md"
+            p="2rem"
             _hover={{ bg: "#43B287" }}
             bg={"#43B287"}
           >

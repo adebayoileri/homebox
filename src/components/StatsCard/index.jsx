@@ -16,7 +16,8 @@ export default function StatsCard({ numbers, percent, label, type }) {
       borderRadius="4px"
       cursor="pointer"
       px="3rem"
-      w={{ base: "100%", xl: "22rem" }}
+      w="100%"
+  
     >
       <Stat fontSize="2.4rem">
         <StatLabel fontSize="1.8rem" fontWeight="semibold">
