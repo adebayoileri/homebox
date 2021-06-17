@@ -1,0 +1,213 @@
+$color-primary: #2c665d;
+$color-secondary: #3d8f83;
+$color-black: #0000;
+$color-black-1: #2a2a2a;
+$color-white: #ffff;
+$color-grey-1: #f5f5f5;
+$color-grey-2: #a6abb2;
+
+$default-padding: 2.5rem;
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == mobile) {
+    @media only screen and (max-width: 31.25em) {
+      //500px
+      @content;
+    }
+  }
+  @if ($breakpoint == phone) {
+    @media only screen and (max-width: 42.5em) {
+      //680px
+      @content;
+    }
+  }
+  @if ($breakpoint == tab-port) {
+    //900px
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if ($breakpoint == tab-land) {
+    @media only screen and (max-width: 74em) {
+      //1200px
+      @content;
+    }
+  }
+  @if ($breakpoint == big-desktop) {
+    @media only screen and (min-width: 112.5em) {
+      //1800px
+      @content;
+    }
+  }
+}
+
+.navigation {
+  display: flex;
+  flex: 0 0 19.5%;
+  display: flex;
+  background: rgba($color-grey-1, 0.6);
+  backdrop-filter: blur(20px);
+  flex-direction: column;
+  overflow-y: auto;
+
+  &__logo {
+    align-items: center;
+    padding: $default-padding;
+  }
+
+  &__header {
+    font-family: "Space Grotesk";
+    color: $color-black-1;
+    text-decoration: none;
+    padding-left: $default-padding;
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 1rem 0;
+    line-height: 1.5;
+    cursor: text;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  &__item {
+    list-style: none;
+    line-height: 0.8;
+    font-size: 1.4rem;
+    font-weight: 400;
+    align-self: stretch;
+    padding: 1.8rem $default-padding;
+    margin: 0.3rem 0;
+    cursor: pointer;
+
+    & a {
+      display: flex;
+      text-decoration: none;
+      color: $color-grey-2;
+      align-items: center;
+    }
+  }
+  &__item--dashboard {
+    background: $color-white;
+    color: $color-grey-2;
+  }
+  &__item--active {
+    background: $color-grey-1;
+    font-weight: 600;
+  }
+  &__item:hover {
+    background: $color-grey-1;
+  }
+  &__item:hover a,
+  &__item--active a {
+    color: $color-black-1;
+  }
+
+  &__icon {
+    margin-right: 1.2rem;
+  }
+
+  @include respond(phone) {
+    display: none;
+  }
+}
+
+.mobile-sidebar {
+  display: none;
+  width: 35%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  background: white;
+  height: 100%;
+  animation: slideIn 0.4s cubic-bezier(1, 0, 0, 1) forwards;
+  @include respond(mobile) {
+    width: 65%;
+  }
+}
+
+.mobile-nav {
+  display: none;
+  background: white;
+  padding: $default-padding;
+
+  transition: all 0.5s;
+
+  @include respond(phone) {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    width: 15rem;
+    display: flex;
+    align-items: center;
+    height: 4rem;
+  }
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+  &__button {
+    cursor: pointer;
+  }
+  &__checkbox:checked ~ &__button &__menu {
+    background-color: transparent;
+  }
+  &__checkbox:checked ~ &__button &__menu::before {
+    top: 0;
+    transform: rotate(135deg);
+  }
+  &__checkbox:checked ~ &__button &__menu::after {
+    top: 0;
+    transform: rotate(-135deg);
+  }
+}
+
+.mobile-nav__menu {
+  position: relative;
+  margin-top: 1rem;
+  &,
+  &::before,
+  &::after {
+    width: 3rem;
+    height: 2px;
+    background-color: $color-primary;
+    display: inline-block;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all 0.4s;
+  }
+
+  &::before {
+    top: -0.8rem;
+  }
+  &::after {
+    top: 0.8rem;
+  }
+}
+
+.section-dashboard {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.section-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 2.4rem;
+}
