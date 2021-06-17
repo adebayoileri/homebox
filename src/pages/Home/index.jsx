@@ -1,34 +1,10 @@
 import React from "react";
 import { HStack, Stack, Text, Box, Avatar, Flex } from "@chakra-ui/react";
+import DataTable from "react-data-table-component";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import StatsCard from "../../components/StatsCard";
-
-const stats = [
-  {
-    label: "Customers",
-    numbers: "4,000",
-    type: "increase",
-    percent: "16%",
-  },
-  {
-    label: "Subscriptions",
-    numbers: "20",
-    type: "descrease",
-    percent: "3%",
-  },
-  {
-    label: "Transactions",
-    numbers: "3,200",
-    type: "increase",
-    percent: "7%",
-  },
-  {
-    label: "Sales",
-    numbers: "£2,520",
-    type: "descrease",
-    percent: "11%",
-  },
-];
+import { stats, customers } from "../../utils/data";
+import { customerColumns } from "../../utils/datatable";
 
 export default function Home() {
   return (
@@ -68,6 +44,17 @@ export default function Home() {
             />
           ))}
       </Stack>
+      <Box mt="4rem">
+        <div>
+          <DataTable
+            title="All Customers"
+            columns={customerColumns}
+            data={customers}
+            pagination
+            paginationPerPage={15}
+          />
+        </div>
+      </Box>
     </DashboardLayout>
   );
 }
